@@ -38,7 +38,7 @@ withDefaults(
 
 <style scoped>
 .hero {
-    min-height: 100vh;
+    min-height: 97vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
     border-bottom: 2px solid var(--border);

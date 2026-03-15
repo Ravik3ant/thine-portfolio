@@ -46,7 +46,7 @@ const track = computed(() => {
     border-bottom: 2px solid var(--ticker);
     white-space: nowrap;
     transition: background 0.4s;
-    transform: translateY(-20px) rotate(-1.5deg) scale(1.04);
+    transform: translateY(-8px) rotate(-1deg) scale(1.04);
     transform-origin: center center;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
