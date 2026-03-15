@@ -220,7 +220,7 @@ const props = withDefaults(
                         "MFP's backend couldn't handle complex, multi-step user queries, responses were shallow and lost context across chained reasoning steps.",
                     task: "Design and ship a reasoning pipeline using extended-thinking APIs that could handle chained queries without losing context.",
                     action: "Architected the multi-step pipeline, integrated extended-thinking APIs, and led a team of 6 from system design through production deployment.",
-                    result: "Pipeline is live and will serve real users. Complex queries now return accurate, context-aware responses. Delivered on time.",
+                    result: "Pipeline is live and serving real users. Complex queries now return accurate, context-aware responses. Delivered on time.",
                 },
             },
             {

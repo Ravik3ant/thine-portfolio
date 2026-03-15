@@ -37,7 +37,7 @@ withDefaults(
             {
                 number: "03_",
                 title: "I find the edge cases, not just the happy path.",
-                desc: "At Livo, there was no brief, just a problem. We ran the research, found the gaps competitors missed, and built the strategy from scratch. That's the mode I work best in.",
+                desc: "At Livo, there was no brief, just a problem. I ran the research, found the gaps competitors missed, and built the strategy from scratch. That's the mode I work best in.",
             },
             {
                 number: "04_",
