@@ -28,16 +28,16 @@ withDefaults(
         label: "§ About Me",
         lines: () => [
             {
-                text: "I am a student builder who likes hard problems and fast iteration.",
-                aside: "[ I learn quickly and enjoy ownership ]",
+                text: "I build things end-to-end, backend pipelines, GTM frameworks, frontend fixes, and I've done it across real teams, not just side projects.",
+                aside: "[ shipped in production, not just on GitHub ]",
             },
             {
-                text: "My work spans AI implementation, frontend optimization, GTM analysis, and product strategy.",
-                aside: "[ technical + business context in one loop ]",
+                text: "My edge is that I operate across the technical and the strategic without needing a translator between the two.",
+                aside: "[ I've sat in both rooms ]",
             },
             {
-                text: "I am applying because Thine sits at the intersection of personal intelligence, user behavior, and growth.",
-                aside: "[ this is exactly the environment I want to grow in ]",
+                text: "Thine is building something where that edge is actually useful, a product that needs both precise engineering and sharp user thinking.",
+                aside: "[ that's not a common combination at intern level ]",
             },
         ],
     },
@@ -72,7 +72,7 @@ withDefaults(
 
 .manifesto-text :deep(em) {
     font-style: italic;
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: "Playfair Display", Georgia, serif;
     font-weight: 400;
     color: var(--rust);
 }

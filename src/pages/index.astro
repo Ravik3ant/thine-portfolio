@@ -1,12 +1,4 @@
 ---
-/**
- * index.astro — Thine AI application page
- *
- * TEMPLATE USAGE:
- * All section content is passed as props to each component.
- * Swap prop values (or leave defaults) to customize for your target.
- */
-
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Cursor from "../components/Cursor.vue";
 import ThemeToggle from "../components/ThemeToggle.vue";
@@ -29,205 +21,39 @@ import Footer from "../components/Footer.vue";
         client:load
         stampLeft="Thine Growth Intern Application"
         headlineLeft="Hi Thine,<br>I am <em>Ravikant</em><br>from BITS."
-        subLeft="M.Sc. Physics + B.E. EEE, BITS Hyderabad (2024-2029).<br>I ship product, break GTM assumptions, and build tools that move metrics."
+        subLeft="M.Sc. Physics + B.E. EEE, BITS Hyderabad (2024-2029).<br>I ship experiments, build tools, and move metrics."
         stampRight="Growth · AI · Product"
         headlineRight="I want to<br><em>earn</em> this<br>role."
-        subRight="You said no form, no résumé portal. Just grab your attention. So I built this instead — a live application that shows how I think, build, and ship."
+        subRight="Most applications explain. This one demonstrates. Here's how I think, what I've built, and why Thine specifically."
     />
 
     <!-- ── TICKER (between hero and about) ── -->
-    <Ticker
-        client:load
-        :items={[
-            "BITS Hyderabad · M.Sc. Physics + B.E. EEE",
-            "AI Engineer at Made For Planet (2026-present)",
-            "Market Consultant & Designer at Livo",
-            "Consultant & Team Lead at 180DC",
-            "Ships code, writes strategy, breaks GTM",
-        ]}
-    />
+    <Ticker client:load :items={[]} />
 
     <!-- ── ABOUT ME ── -->
-    <Manifesto
-        client:visible
-        label="§ About Me"
-        :lines={[
-            {
-                text: "I build things that work — APIs, frontends, GTM frameworks — and I ship them fast.",
-                aside: "I learn by doing, not by watching.",
-            },
-            {
-                text: "My work spans AI backend systems, frontend performance, Go-To-Market strategy, and product design.",
-                aside: "Technical depth + business instinct in one person.",
-            },
-            {
-                text: "Thine is building personal intelligence for high-achievers. That is the kind of product I want to help grow.",
-                aside: "Not here for a line on my résumé. Here to move the needle.",
-            },
-        ]}
-    />
+    <Manifesto client:visible label="§ About Me" :lines={[]} />
 
     <!-- ── WHY THINE ── -->
-    <WhyYou
-        client:visible
-        label="§ Why Thine"
-        :items={[
-            {
-                number: "01 —",
-                title: "Thine needs someone who can ship, not just strategize.",
-                desc: "Your JD says no handbook, no 9-to-5. That matches how I work — I take ownership, prototype fast, and iterate based on real signal, not assumptions.",
-            },
-            {
-                number: "02 —",
-                title: "I bridge the gap between building and selling.",
-                desc: "I have built AI backends, optimized frontend UX, and designed GTM frameworks. I can write the code and the copy, which means fewer handoffs and faster execution.",
-            },
-            {
-                number: "03 —",
-                title: "Ambiguity does not slow me down — it is where I do my best work.",
-                desc: "Early-stage means shifting priorities. I have shipped in those conditions — at a startup, in consulting, and on my own projects. I adapt fast.",
-            },
-            {
-                number: "04 —",
-                title: "This page is the proof, not just the pitch.",
-                desc: "You asked applicants to grab your attention. I built a full application site from scratch instead of sending a PDF. That is how I approach every problem.",
-            },
-        ]}
-    />
+    <WhyYou client:visible label="§ Why Thine" :items={[]} />
 
     <!-- ── PAST WORK ── -->
-    <ProofOfWork
-        client:visible
-        label="§ Past Work"
-        :items={[
-            {
-                number: "001",
-                text: "Built extended-thinking AI pipeline on backend — multi-step reasoning for complex user queries at Made For Planet.",
-                note: "[ Jan 2026-present · AI Engineer · shipping in production ]",
-                tag: "AI",
-                brief: "Shipped a multi-step reasoning pipeline from architecture to production — led a team of 6, on time.",
-                star: {
-                    situation:
-                        "MFP's backend couldn't handle complex, multi-step user queries — responses were shallow and lost context across chained reasoning steps.",
-                    task: "Design and ship a reasoning pipeline using extended-thinking APIs that could handle chained queries without losing context.",
-                    action: "Architected the multi-step pipeline, integrated extended-thinking APIs, and led a team of 6 from system design through production deployment.",
-                    result: "Complex queries now return accurate, context-aware responses. Pipeline shipped on time and is live in production.",
-                },
-            },
-            {
-                number: "002",
-                text: "Cut redundant API calls with input debouncing and lazy loading — measurably improved frontend responsiveness.",
-                note: "[ performance wins across search, filter, and form interfaces ]",
-                tag: "Frontend",
-                brief: "Audited and fixed wasteful API call patterns — made the UI noticeably faster without a full rewrite.",
-                star: {
-                    situation:
-                        "Search, filter, and form components were firing API calls on every keystroke — overloading the backend and making the UI feel sluggish.",
-                    task: "Reduce unnecessary API traffic and improve frontend responsiveness without a full rewrite.",
-                    action: "Audited call patterns across components, implemented input debouncing and lazy loading strategies at the interface layer.",
-                    result: "Significant reduction in redundant API calls. UI became noticeably snappier and backend load dropped measurably.",
-                },
-            },
-            {
-                number: "003",
-                text: "Designed soft-delete, archiving, and optimized query patterns — reduced DB complexity and sped up data retrieval.",
-                note: "[ backend architecture decisions that scaled ]",
-                tag: "Backend",
-                brief: "Built data recovery and archival workflows from scratch — made the data layer actually scale.",
-                star: {
-                    situation:
-                        "The database layer had no archival strategy — deleted data was gone permanently, and query patterns were unindexed, causing slow retrievals at scale.",
-                    task: "Build soft-delete and archival workflows, and optimize query patterns to make the data layer scalable.",
-                    action: "Designed soft-delete logic from scratch, implemented archiving pipelines, and introduced indexed query patterns by user name and ID.",
-                    result: "Query complexity dropped significantly, data retrieval sped up, and the team gained the ability to recover deleted records.",
-                },
-            },
-            {
-                number: "004",
-                text: "Built GTM strategy framework and UI/UX mockups for Livo, a finance tracking product — from user research to launch plan.",
-                note: "[ Aug-Dec 2025 · Market Consultant & Designer ]",
-                tag: "GTM",
-                brief: "Validated a finance product direction through 400+ surveys, competitor analysis, and a full launch framework.",
-                star: {
-                    situation:
-                        "Livo had a product idea for finance tracking but no validated direction — no user research, no competitive landscape, no go-to-market plan.",
-                    task: "Validate the product direction through research and build a GTM framework from user insights to launch strategy.",
-                    action: "Surveyed 400+ students and early professionals, ran a full competitor teardown, designed UI/UX mockups, and built a positioning and launch framework.",
-                    result: "Delivered a validated product direction with clear positioning, a competitor map, and an actionable launch plan the team could execute against.",
-                },
-            },
-            {
-                number: "005",
-                text: "Led consulting engagements at 180 Degrees Consulting — product strategy, AI integration, and user retention for real clients.",
-                note: "[ Aug 2025-present · Consultant & Team Lead ]",
-                tag: "Strategy",
-                brief: "Delivered actionable strategies for real clients — product roadmaps, AI adoption, retention diagnostics.",
-                star: {
-                    situation:
-                        "Real clients needed actionable strategy across product, AI adoption, and retention — not slide decks that sit in a drive.",
-                    task: "Lead cross-functional teams to deliver strategies that clients could actually execute on.",
-                    action: "Managed consulting teams through product roadmap planning, AI adoption assessments, and retention diagnostics — ensuring every deliverable was grounded in data.",
-                    result: "Clients received actionable, implementable strategies. Work consistently rated high on impact by both clients and the organization.",
-                },
-            },
-            {
-                number: "006",
-                text: "Ran academic support sessions for 1000+ freshmen across three semesters at ACC, BITS Hyderabad.",
-                note: "[ Aug 2024-present · Core Member ]",
-                tag: "Community",
-                brief: "Three semesters of consistent, large-scale academic support that freshmen actually relied on.",
-                star: {
-                    situation:
-                        "Incoming freshmen at BITS Hyderabad lacked structured academic support — drop-off rates in early coursework were high.",
-                    task: "Organize and run large-scale support sessions that actually help students navigate their first year.",
-                    action: "Coordinated sessions across three semesters, covering core subjects, study strategies, and exam prep for 1000+ students.",
-                    result: "Consistent execution at scale across three semesters. Sessions became a go-to resource for freshmen navigating their first year.",
-                },
-            },
-        ]}
-    />
+    <ProofOfWork client:visible label="§ Past Work" :items={[]} />
 
     <!-- ── WHAT YOU GET ── -->
     <DirectStatement
         client:visible
         label="§ If You Hire Me"
         heading="What happens if you <em>hire me.</em>"
-        :traits={[
-            {
-                title: "Operator mindset",
-                desc: "I run experiments, measure outcomes, and iterate fast. I do not wait for permission to test ideas — I ship them and learn.",
-            },
-            {
-                title: "Technical execution",
-                desc: "I can ship experiments without waiting on a full engineering cycle. I build the landing page, wire up the analytics, and push it live.",
-            },
-            {
-                title: "Growth thinking",
-                desc: "I focus on leverage — the small changes that move key metrics. Not vanity work, not busywork. The thing that actually matters this week.",
-            },
-        ]}
-        :closerLines={[
-            "If you want someone to learn slowly, I am not your candidate.",
-            "If you want someone to run experiments quickly, we should talk.",
-        ]}
+        :traits={[]}
+        :closerLines={[]}
     />
 
     <!-- ── CTA ── -->
     <CTA
         client:visible
-        headlineHtml="Thank you for<br>reviewing my<br><em>application.</em>"
-        :links={[
-            {
-                label: "ravik3ant@gmail.com",
-                href: "mailto:ravik3ant@gmail.com",
-            },
-            {
-                label: "GitHub · Ravik3ant",
-                href: "https://github.com/Ravik3ant",
-                external: true,
-            },
-        ]}
-        note="Ready to start immediately. Open to Bangalore or remote."
+        headlineHtml="I don't interview well.<br> I ship well. <em>Let's find out.</em>"
+        :links={[]}
+        note=""
     />
 
     <!-- ── FOOTER ── -->
@@ -235,18 +61,7 @@ import Footer from "../components/Footer.vue";
         client:visible
         left="Ravikant · Built for Thine · 2026"
         right="Resume and work summary"
-        :actions={[
-            {
-                label: "Download Resume (PDF)",
-                href: "/ravikant_14March.pdf",
-                download: true,
-            },
-            {
-                label: "View Resume",
-                href: "/ravikant_14March.pdf",
-                external: true,
-            },
-        ]}
+        :actions={[]}
     />
 
     <!-- ── SCROLL REVEAL ── -->

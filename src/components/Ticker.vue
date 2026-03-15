@@ -15,10 +15,10 @@ const props = withDefaults(
     }>(),
     {
         items: () => [
-            "BITS Hyderabad · M.Sc. Physics + B.E. EEE",
-            "AI Engineer at Made For Planet (2026-present)",
-            "Market Consultant at Livo Finance Tracking",
-            "Consultant and Team Lead at 180DC",
+            "M.Sc. Physics + B.E. EEE @ BITS Hyderabad",
+            "AI Engineer @ Made For Planet",
+            "Market Consultant @ Livo",
+            "Team Lead @ 180DC",
             "Execution > Claims",
         ],
     },

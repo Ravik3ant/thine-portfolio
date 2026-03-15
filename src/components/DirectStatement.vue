@@ -49,19 +49,19 @@ withDefaults(
     }>(),
     {
         label: "§ If You Hire Me",
-        heading: "What happens if you <em>hire me.</em>",
+        heading: "What happens if <em>you hire me.</em>",
         traits: () => [
             {
-                title: "Operator mindset",
-                desc: "I run experiments, measure outcomes, and iterate fast. I do not wait to test ideas, I ship them and learn.",
+                title: "I ship, not just plan.",
+                desc: "I build the experiment, push it live, measure it, and iterate — without waiting on a full engineering cycle or a project manager to move.",
             },
             {
-                title: "Technical execution",
-                desc: "I can ship experiments without waiting on a full engineering cycle. I build the landing page, wire up the analytics, and push it live.",
+                title: "I connect technical work to business outcomes.",
+                desc: 'I know what I built and why it matters to the metric. Not just "I implemented debouncing" — but "I cut API load so the filter UX stopped bleeding users."',
             },
             {
-                title: "Growth thinking",
-                desc: "I focus on leverage, the small changes that move key metrics. Not vanity work, not busywork. The thing that actually matters this week.",
+                title: "Growth  I focus on what moves the number this week.",
+                desc: "Not the roadmap, not the backlog, not what looks impressive. The smallest change with the highest leverage. That's the only question I optimise for.",
             },
         ],
         closerLines: () => [
@@ -89,7 +89,7 @@ withDefaults(
 
 .direct-heading :deep(em) {
     font-style: italic;
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: "Playfair Display", Georgia, serif;
     font-weight: 400;
     color: var(--rust);
 }

@@ -27,7 +27,8 @@ withDefaults(
         note?: string;
     }>(),
     {
-        headlineHtml: "Thank you for<br>reviewing my<br><em>application.</em>",
+        headlineHtml:
+            "TI don't interview well. I ship well.<em>Let's find out.</em>",
         links: () => [
             {
                 label: "ravik3ant@gmail.com",
@@ -70,7 +71,7 @@ withDefaults(
 
 .cta-headline :deep(em) {
     font-style: italic;
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: "Playfair Display", Georgia, serif;
     font-weight: 400;
     color: var(--acid);
 }

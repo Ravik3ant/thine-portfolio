@@ -3,16 +3,20 @@
         <div class="section-inner">
             <div class="section-label">{{ label }}</div>
             <div class="section-body reveal">
+                <!-- Professional items -->
                 <ul class="proof-list">
                     <li
-                        v-for="(item, i) in items"
-                        :key="i"
+                        v-for="item in professionalItems"
+                        :key="item.number"
                         :class="[
                             'proof-item',
-                            { 'is-open': revealedSteps[i] > 0 },
+                            {
+                                'is-open':
+                                    revealedSteps[originalIndex(item)] > 0,
+                            },
                         ]"
-                        @click="advance(i)"
-                        @mouseenter="hoveredIndex = i"
+                        @click="advance(originalIndex(item))"
+                        @mouseenter="hoveredIndex = originalIndex(item)"
                         @mouseleave="hoveredIndex = null"
                     >
                         <span class="proof-number">{{ item.number }}</span>
@@ -24,26 +28,28 @@
                         </span>
                         <span class="proof-tag">{{ item.tag }}</span>
 
-                        <!-- Brief description: hover only, hidden when STAR is open -->
                         <div
                             v-if="item.brief"
                             :class="[
                                 'proof-brief',
                                 {
                                     'is-visible':
-                                        hoveredIndex === i && !revealedSteps[i],
+                                        hoveredIndex === originalIndex(item) &&
+                                        !revealedSteps[originalIndex(item)],
                                 },
                             ]"
                         >
                             <p>{{ item.brief }}</p>
                         </div>
 
-                        <!-- STAR progressive reveal: click-driven -->
                         <div
                             v-if="item.star"
                             :class="[
                                 'star-container',
-                                { 'is-visible': visibleSteps(i) > 0 },
+                                {
+                                    'is-visible':
+                                        visibleSteps(originalIndex(item)) > 0,
+                                },
                             ]"
                         >
                             <div
@@ -51,7 +57,11 @@
                                 :key="step.key"
                                 :class="[
                                     'star-step',
-                                    { 'is-revealed': si < visibleSteps(i) },
+                                    {
+                                        'is-revealed':
+                                            si <
+                                            visibleSteps(originalIndex(item)),
+                                    },
                                 ]"
                             >
                                 <span class="star-label">{{ step.label }}</span>
@@ -60,8 +70,11 @@
                                 }}</span>
                             </div>
                             <div class="star-hint">
-                                <span v-if="visibleSteps(i) < 4">
-                                    {{ visibleSteps(i) }}/4 — click for more
+                                <span
+                                    v-if="visibleSteps(originalIndex(item)) < 4"
+                                >
+                                    {{ visibleSteps(originalIndex(item)) }}/4 —
+                                    click for more
                                 </span>
                                 <span v-else class="star-hint-done">
                                     full story — click to collapse
@@ -70,13 +83,107 @@
                         </div>
                     </li>
                 </ul>
+
+                <!-- Beyond Work cluster -->
+                <div v-if="beyondWorkItems.length" class="beyond-work">
+                    <div class="beyond-work-label">Beyond Work</div>
+                    <ul class="proof-list">
+                        <li
+                            v-for="item in beyondWorkItems"
+                            :key="item.number"
+                            :class="[
+                                'proof-item',
+                                {
+                                    'is-open':
+                                        revealedSteps[originalIndex(item)] > 0,
+                                },
+                            ]"
+                            @click="advance(originalIndex(item))"
+                            @mouseenter="hoveredIndex = originalIndex(item)"
+                            @mouseleave="hoveredIndex = null"
+                        >
+                            <span class="proof-number">{{ item.number }}</span>
+                            <span class="proof-text">
+                                {{ item.text }}
+                                <span v-if="item.note" class="proof-note">{{
+                                    item.note
+                                }}</span>
+                            </span>
+                            <span class="proof-tag">{{ item.tag }}</span>
+
+                            <div
+                                v-if="item.brief"
+                                :class="[
+                                    'proof-brief',
+                                    {
+                                        'is-visible':
+                                            hoveredIndex ===
+                                                originalIndex(item) &&
+                                            !revealedSteps[originalIndex(item)],
+                                    },
+                                ]"
+                            >
+                                <p>{{ item.brief }}</p>
+                            </div>
+
+                            <div
+                                v-if="item.star"
+                                :class="[
+                                    'star-container',
+                                    {
+                                        'is-visible':
+                                            visibleSteps(originalIndex(item)) >
+                                            0,
+                                    },
+                                ]"
+                            >
+                                <div
+                                    v-for="(step, si) in starLabels"
+                                    :key="step.key"
+                                    :class="[
+                                        'star-step',
+                                        {
+                                            'is-revealed':
+                                                si <
+                                                visibleSteps(
+                                                    originalIndex(item),
+                                                ),
+                                        },
+                                    ]"
+                                >
+                                    <span class="star-label">{{
+                                        step.label
+                                    }}</span>
+                                    <span class="star-text">{{
+                                        (item.star as any)[step.key]
+                                    }}</span>
+                                </div>
+                                <div class="star-hint">
+                                    <span
+                                        v-if="
+                                            visibleSteps(originalIndex(item)) <
+                                            4
+                                        "
+                                    >
+                                        {{
+                                            visibleSteps(originalIndex(item))
+                                        }}/4 — click for more
+                                    </span>
+                                    <span v-else class="star-hint-done">
+                                        full story — click to collapse
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 </template>
 
 <script setup lang="ts">
-import { ref, reactive } from "vue";
+import { ref, reactive, computed } from "vue";
 
 interface StarData {
     situation: string;
@@ -85,17 +192,19 @@ interface StarData {
     result: string;
 }
 
-withDefaults(
+interface ProofItem {
+    number: string;
+    text: string;
+    note?: string;
+    tag: string;
+    brief?: string;
+    star?: StarData;
+}
+
+const props = withDefaults(
     defineProps<{
         label?: string;
-        items?: {
-            number: string;
-            text: string;
-            note?: string;
-            tag: string;
-            brief?: string;
-            star?: StarData;
-        }[];
+        items?: ProofItem[];
     }>(),
     {
         label: "§ Past Work",
@@ -111,7 +220,7 @@ withDefaults(
                         "MFP's backend couldn't handle complex, multi-step user queries, responses were shallow and lost context across chained reasoning steps.",
                     task: "Design and ship a reasoning pipeline using extended-thinking APIs that could handle chained queries without losing context.",
                     action: "Architected the multi-step pipeline, integrated extended-thinking APIs, and led a team of 6 from system design through production deployment.",
-                    result: "Pipeline will be live and will serve real users. Complex queries now return accurate, context-aware responses. Delivered on time.",
+                    result: "Pipeline is live and will serve real users. Complex queries now return accurate, context-aware responses. Delivered on time.",
                 },
             },
             {
@@ -133,7 +242,7 @@ withDefaults(
                 text: "Architected soft-delete, archiving, and indexed query patterns to clean up MFP's database layer.",
                 note: "[ reduced query complexity and improved data retrieval ]",
                 tag: "Backend",
-                brief: "Built data recovery and archival workflows from scratch · made the data layer actually scale.",
+                brief: "Built data recovery and archival workflows from scratch · made the data layer built for scale from the start",
                 star: {
                     situation:
                         "The database had no archival strategy, deleted data was gone permanently, and unindexed queries were causing slow retrievals as data grew.",
@@ -193,9 +302,9 @@ withDefaults(
                 star: {
                     situation:
                         "Ignite aimed to bring hundreds of students from local orphanages onto the BITS Hyderabad campus for a full multi-day experience, requiring tight coordination across clubs, volunteers, and logistics.",
-                    task: "Ensure 150 visiting students had a safe, engaging, well-run experience across 25 events over 3 days.",
+                    task: "Ensure 200 visiting students had a safe, engaging, well-run experience across 25 events over 3 days.",
                     action: "Managed volunteer teams, coordinated event flow across 25+ activities run in collaboration with multiple campus clubs, handled logistics, and personally engaged with visiting students throughout.",
-                    result: "150 orphanage students experienced a full 3-day campus event without a hitch, 25 events executed across multiple clubs with consistent volunteer coordination.",
+                    result: "200 orphanage students experienced a full 3-day campus event without a hitch, 25 events executed across multiple clubs with consistent volunteer coordination.",
                 },
             },
         ],
@@ -223,6 +332,20 @@ function advance(index: number) {
     } else {
         revealedSteps[index] = current + 1;
     }
+}
+
+const communityTags = new Set(["Community"]);
+
+const professionalItems = computed(() =>
+    props.items.filter((item) => !communityTags.has(item.tag)),
+);
+const beyondWorkItems = computed(() =>
+    props.items.filter((item) => communityTags.has(item.tag)),
+);
+
+/** Map from original items-array index to the item, so click/hover state stays consistent */
+function originalIndex(item: ProofItem): number {
+    return props.items.indexOf(item);
 }
 </script>
 
@@ -319,7 +442,7 @@ function advance(index: number) {
 .proof-brief.is-visible {
     max-height: 80px;
     opacity: 1;
-    margin-top: 8px;
+    margin-top: 0px;
 }
 
 .proof-brief p {
@@ -422,5 +545,22 @@ function advance(index: number) {
     .star-container {
         grid-column: 1 / -1;
     }
+}
+
+/* ── Beyond Work cluster ── */
+.beyond-work {
+    margin-top: 40px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+}
+
+.beyond-work-label {
+    font-family: "DM Mono", monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mist);
+    opacity: 0.6;
+    margin-bottom: 8px;
 }
 </style>
