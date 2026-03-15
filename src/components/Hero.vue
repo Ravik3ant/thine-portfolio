@@ -50,6 +50,7 @@ withDefaults(
     flex-direction: column;
     justify-content: space-between;
     border-right: 2px solid var(--border);
+    transition: background color 0.6s;
 }
 
 .hero-right {
@@ -59,7 +60,7 @@ withDefaults(
     justify-content: flex-end;
     background: var(--hero-right-bg);
     color: var(--hero-right-text);
-    transition: background 0.4s;
+    transition: background color 0.6s;
 }
 
 .stamp {

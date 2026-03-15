@@ -27,17 +27,17 @@ withDefaults(
             {
                 number: "01 —",
                 title: "Thine is solving a problem most tools ignore.",
-                desc: "Most productivity tools track what you did. Thine is building something that understands who you are. That distinction requires product thinking, not just feature shipping — and that's the mode I work in.",
+                desc: "Most productivity tools track what you did. Thine is building something that understands who you are. That distinction requires product thinking, not just feature shipping, and that's the mode I work in.",
             },
             {
                 number: "02 —",
                 title: "I can bridge technical implementation and GTM execution.",
-                desc: "I've built the backend, fixed the frontend, and written the GTM strategy — sometimes in the same week. I don't need handoffs to move.",
+                desc: "I've built the backend, fixed the frontend, and written the GTM strategy, sometimes in the same week. I don't need handoffs to move.",
             },
             {
                 number: "03 —",
                 title: "I find the edge cases, not just the happy path.",
-                desc: "At Livo, there was no brief — just a problem. I ran the research, found the gaps competitors missed, and built the strategy from scratch. That's the mode I work best in.",
+                desc: "At Livo, there was no brief, just a problem. We ran the research, found the gaps competitors missed, and built the strategy from scratch. That's the mode I work best in.",
             },
             {
                 number: "04 —",

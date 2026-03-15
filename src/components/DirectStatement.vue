@@ -53,14 +53,14 @@ withDefaults(
         traits: () => [
             {
                 title: "I ship, not just plan.",
-                desc: "I build the experiment, push it live, measure it, and iterate — without waiting on a full engineering cycle or a project manager to move.",
+                desc: "I build the experiment, push it live, measure it, and iterate, without waiting on a full engineering cycle or a project manager to move.",
             },
             {
                 title: "I connect technical work to business outcomes.",
-                desc: 'I know what I built and why it matters to the metric. Not just "I implemented debouncing" — but "I cut API load so the filter UX stopped bleeding users."',
+                desc: 'I know what I built and why it matters to the metric. Not just "I implemented debouncing", but "I cut API load so the filter UX stopped bleeding users."',
             },
             {
-                title: "Growth  I focus on what moves the number this week.",
+                title: "I focus on what moves the number this week.",
                 desc: "Not the roadmap, not the backlog, not what looks impressive. The smallest change with the highest leverage. That's the only question I optimise for.",
             },
         ],

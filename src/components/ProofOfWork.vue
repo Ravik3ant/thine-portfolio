@@ -275,7 +275,7 @@ const props = withDefaults(
                     situation:
                         "Real clients needed actionable strategy across product, AI adoption, and retention — not slide decks that sit in a drive.",
                     task: "Lead cross-functional teams to deliver strategies that clients could actually execute on.",
-                    action: "Managed consulting teams through product roadmap planning, AI adoption assessments, and retention diagnostics — ensuring every deliverable was grounded in data.",
+                    action: "Managed consulting teams through product roadmap planning, AI adoption assessments, and retention diagnostics, ensuring every deliverable was grounded in data.",
                     result: "At least one client moved to implementation. Work consistently rated high on impact by both clients and the organization.",
                 },
             },
