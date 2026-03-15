@@ -273,7 +273,7 @@ const props = withDefaults(
                 brief: "Delivered strategies real clients acted on · at least one client moved to implementation.",
                 star: {
                     situation:
-                        "Real clients needed actionable strategy across product, AI adoption, and retention — not slide decks that sit in a drive.",
+                        "Real clients needed actionable strategy across product, AI adoption, and retention, not slide decks that sit in a drive.",
                     task: "Lead cross-functional teams to deliver strategies that clients could actually execute on.",
                     action: "Managed consulting teams through product roadmap planning, AI adoption assessments, and retention diagnostics, ensuring every deliverable was grounded in data.",
                     result: "At least one client moved to implementation. Work consistently rated high on impact by both clients and the organization.",
@@ -295,8 +295,8 @@ const props = withDefaults(
             },
             {
                 number: "007",
-                text: "Coordinated Ignite — a 3-day campus event hosting 150 orphanage students across 25 events.",
-                note: "[ Sem 1 · Volunteer, Nirmaan — BITS Hyderabad ]",
+                text: "Coordinated Ignite, a 3-day campus event hosting 150 orphanage students across 25 events.",
+                note: "[ Sem 1 · Volunteer, Nirmaan · BITS Hyderabad ]",
                 tag: "Community",
                 brief: "Managed volunteers, logistics, and student interaction for a 3-day, 25-event experience built for 200 kids from local orphanages.",
                 star: {

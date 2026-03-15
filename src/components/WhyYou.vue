@@ -25,22 +25,22 @@ withDefaults(
         label: "§ Why Thine",
         items: () => [
             {
-                number: "01 —",
+                number: "01_",
                 title: "Thine is solving a problem most tools ignore.",
                 desc: "Most productivity tools track what you did. Thine is building something that understands who you are. That distinction requires product thinking, not just feature shipping, and that's the mode I work in.",
             },
             {
-                number: "02 —",
+                number: "02_",
                 title: "I can bridge technical implementation and GTM execution.",
                 desc: "I've built the backend, fixed the frontend, and written the GTM strategy, sometimes in the same week. I don't need handoffs to move.",
             },
             {
-                number: "03 —",
+                number: "03_",
                 title: "I find the edge cases, not just the happy path.",
                 desc: "At Livo, there was no brief, just a problem. We ran the research, found the gaps competitors missed, and built the strategy from scratch. That's the mode I work best in.",
             },
             {
-                number: "04 —",
+                number: "04_",
                 title: "I care about doing real work, not just applying.",
                 desc: "I didn't apply to 40 companies and hope. I spent time understanding what Thine actually needs, then built something that shows it. That's the only kind of application I know how to make.",
             },
